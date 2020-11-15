@@ -1,3 +1,4 @@
 module.exports = {
-    transform: {}
+    transform: {},
+    coveragePathIgnorePatterns: ["/node_modules/", "/src/.internal/"]
 };
