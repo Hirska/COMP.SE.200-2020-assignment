@@ -34,7 +34,7 @@ describe('capitalize', () => {
         const result = capitalize('¤()&#startingNameWithSpecialCharacters');
         expect(result).toEqual('¤()&#startingnamewithspecialcharacters'); 
 
-        const result5 = capitalize('_some_#¤Name_');
-        expect(result5).toEqual('_some_#¤name_');       
+        const result5 = capitalize('_some_#¤Name_1997');
+        expect(result5).toEqual('_some_#¤name_1997');       
     });      
 });
