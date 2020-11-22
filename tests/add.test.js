@@ -1,6 +1,6 @@
 import add from '../src/add.js'
 
-describe('1: Basic addition', () => {
+describe('add 1: Basic addition', () => {
     test('1: Addtion between integers', () => {
         const result = add(1,2)
         expect(result).toBe(3)
@@ -22,7 +22,7 @@ describe('1: Basic addition', () => {
     });    
 })
 
-describe('1: Undefined values', () => {
+describe('add 2: Undefined values', () => {
     // This case means that both should be null for a default value? 
     // By design or an overlook
     test('1: Missing one params', () => {

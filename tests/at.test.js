@@ -38,7 +38,7 @@ const someRandomPaths = {
 }
 
 
-describe('1: Basic functionality, proper object and paths', () => {
+describe('at 1: Basic functionality, proper object and paths', () => {
     test('1: Query single layer', () => {
         const result = at(someItemObject, someRandomPaths.get_name)
         expect(result).toEqual(['some item']);
@@ -65,7 +65,7 @@ describe('1: Basic functionality, proper object and paths', () => {
         }]);
     });
 
-    test('2: Query with in different depths', () => {
+    test('at 2: Query with in different depths', () => {
         const result = at(someItemObject, someRandomPaths.get_height);
         expect(result).toEqual([15]);
 
@@ -86,7 +86,7 @@ describe('1: Basic functionality, proper object and paths', () => {
    
 });
 
-describe('2: Invalid paths', () => {
+describe('at 2: Invalid paths', () => {
     // This case means that both should be null for a default value? 
     // By design or an overlook
     test('1: Paths are not found', () => {
@@ -105,7 +105,7 @@ describe('2: Invalid paths', () => {
     });     
 });
 
-describe('3: Invalid object', () => {
+describe('at 3: Invalid object', () => {
     // This case means that both should be null for a default value? 
     // By design or an overlook
 
