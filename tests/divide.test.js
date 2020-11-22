@@ -10,6 +10,6 @@ describe('CamelCase', () => {
         expect(result).toBe(6/4)
         
         result = divide(9,3)
-        expect(result).toBe(3)        
+        expect(result).toBe(3)
     })
 }) 
