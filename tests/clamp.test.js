@@ -30,7 +30,7 @@ describe('clamp', () => {
         expect(result).toEqual(-5);
 
         const result2 = clamp(95481354.1348468187, -3, null);
-        expect(result2).toEqual(-3);
+        expect(result2).toEqual(-3); // honest case would be 0
         
         const result3 = clamp(91738264.46283719, -3.3, NaN);
         expect(result3).toEqual(-3.3);
@@ -50,7 +50,7 @@ describe('clamp', () => {
         expect(result2).toEqual(NaN);
 
         const result21 = clamp(NaN, 3, 5);
-        expect(result2).toEqual(NaN);        
+        expect(result2).toEqual(NaN);
         
         const result3 = clamp(null, 3);
         expect(result3).toEqual(0);

@@ -38,14 +38,18 @@ const someRandomPaths = {
 }
 
 
-describe('at 1: Basic functionality, proper object and paths', () => {
-    test('1: Query single layer', () => {
+describe('Suite 1: Basic functionality, proper object and paths', () => {
+    test('at 1: get object attribute - name', () => {
         const result = at(someItemObject, someRandomPaths.get_name)
         expect(result).toEqual(['some item']);
+    });
 
+    test('at 2: get object attribute - quanlity', () => {
         const result2 = at(someItemObject, someRandomPaths.get_quantity)
         expect(result2).toEqual([739182465]);
+    });
 
+    test('at 3: get object attribute - attribs', () => {
         const result3 = at(someItemObject, someRandomPaths.get_attribs)
         expect(result3).toEqual([[
             {'height': 15, 'width': 45, 'length': 97},
@@ -54,7 +58,9 @@ describe('at 1: Basic functionality, proper object and paths', () => {
             false,
             true
         ]]);
+    });
 
+    test('at 4: get object attribute - ratings', () => {
         const result4 = at(someItemObject, someRandomPaths.get_ratings)
         expect(result4).toEqual([{
             '5': 15,
@@ -65,16 +71,20 @@ describe('at 1: Basic functionality, proper object and paths', () => {
         }]);
     });
 
-    test('at 2: Query with in different depths', () => {
+    test('at 5: get object attribute - height', () => {
         const result = at(someItemObject, someRandomPaths.get_height);
         expect(result).toEqual([15]);
+    });
 
+    test('at 6: get object attribute - sizes', () => {
         const result2 = at(someItemObject, [
             someRandomPaths.get_height,
             someRandomPaths.get_width,
             someRandomPaths.get_length]);
         expect(result2).toEqual([15, 45, 97]);
+    });
 
+    test('at 7: get object attribute - ratings', () => {
         const result3 = at(someItemObject, [
             someRandomPaths.get_ratings_5_stars,
             someRandomPaths.get_ratings_4_stars,
@@ -86,36 +96,34 @@ describe('at 1: Basic functionality, proper object and paths', () => {
    
 });
 
-describe('at 2: Invalid paths', () => {
+describe('Suite 2: Invalid inputs - paths and objects', () => {
     // This case means that both should be null for a default value? 
     // By design or an overlook
-    test('1: Paths are not found', () => {
+    test('at 8: Paths are not found', () => {
         const result = at(someItemObject, ['some invalid path', 'another invalid stuff']);
         expect(result).toEqual([undefined, undefined]);
     });
 
-    test('2: Path is null', () => {
+    test('at 9: Path is null', () => {
         const result = at(someItemObject, null);
         expect(result).toEqual([undefined]);
     }); 
     
-    test('3: Path is not passed', () => {
+    test('at 10: Path is not passed', () => {
         const result = at(someItemObject);
         expect(result).toEqual([]);
     });     
-});
 
-describe('at 3: Invalid object', () => {
     // This case means that both should be null for a default value? 
     // By design or an overlook
 
-    test('1: Object is null', () => {
+    test('at 11: Object is null', () => {
         const result = at(null, someRandomPaths.get_height);
         expect(result).toEqual([undefined]);
     }); 
     
-    test('2: Path is not passed', () => {
+    test('at 12: Path is not passed', () => {
         const result = at();
         expect(result).toEqual([]);
-    });     
+    });
 });

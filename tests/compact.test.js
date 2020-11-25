@@ -27,6 +27,9 @@ describe('compact', () => {
         const result = compact([2,4]);
         expect(result).toEqual([2,4]);
 
+        const result1 = compact([0]);
+        expect(result1).toEqual([0]);
+
         const result2 = compact([4.23582176, 3, false, true, 1, 0, 15]);
         expect(result2).toEqual([4.23582176, 3, true, 1, 15]);
         
@@ -34,8 +37,7 @@ describe('compact', () => {
         expect(result3).toEqual([-4.94578215134, 6, 1, 2020]);
         
         const result4 = compact([5.234*732.12, "", 1, 0, 1, 7]);
-        expect(result4).toEqual([5.234*732.12, 1, 1, 7]);        
-
+        expect(result4).toEqual([5.234*732.12, 1, 1, 7]);
     });
 
     test('2: Array containing objects and falsely values', () => {        

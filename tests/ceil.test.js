@@ -7,55 +7,80 @@ describe('ceil', () => {
     test('1: Valid number and precision', () => {
         const result = ceil(4, 2);
         expect(result).toEqual(4.00);
+    });
 
+    test('2: Valid number and precision', () => {
         const result2 = ceil(4.23582176, 3);
         expect(result2).toEqual(4.236);
-        
-        const result3 = ceil(-4.94578215134, 6);
-        expect(result3).toEqual(-4.945782);
-        
-        const result4 = ceil(5.234*732.12, 7);
-        expect(result4).toEqual(3831.91608);        
-
-    });
-
-    test('2: Precision is negative or float', () => {        
-        const result = ceil(123456, -5);
-        expect(result).toEqual(200000);
-
-        const result2 = ceil(95481354.1348468187, -3);
-        expect(result2).toEqual(95482000);
-        
-        const result3 = ceil(91738264.46283719, -3.3);
-        expect(result3).toEqual(NaN);
-
-        const result4 = ceil(123456, -4);
-        expect(result4).toEqual(130000);
-        
-        const result5 = ceil(123456, -4.1);
-        expect(result5).toEqual(NaN);         
     });
     
-    test('3: Missing one or more input', () => {
+    test('3: Valid number and precision', () => {
+        const result3 = ceil(-4.94578215134, 6);
+        expect(result3).toEqual(-4.945782);
+    });
+    
+    test('4: Valid number and precision', () => {
+        const result4 = ceil(5.234*732.12, 7);
+        expect(result4).toEqual(3831.91608);
+    });
+
+    test('5: Precision is negative or float', () => {
+        const result = ceil(123456, -5);
+        expect(result).toEqual(200000);
+    });
+
+    test('6: Precision is negative or float', () => {
+        const result2 = ceil(95481354.1348468187, -3);
+        expect(result2).toEqual(95482000);
+    });
+    
+    test('7: Precision is negative or float', () => {
+        const result3 = ceil(91738264.46283719, -3.3);
+        expect(result3).toEqual(NaN);
+    });
+    
+    test('8: Precision is negative or float', () => {
+        const result4 = ceil(123456, -4);
+        expect(result4).toEqual(130000);
+    });
+    
+    test('9: Precision is negative or float', () => {
+        const result5 = ceil(123456, -4.1);
+        expect(result5).toEqual(NaN);
+    });
+    
+    test('10: Missing one or more input', () => {
         const result = ceil(null, 2);
         expect(result).toEqual(NaN); 
+    });
 
+    test('11: Missing one or more input', () => {
         const result2 = ceil(undefined, 3);
         expect(result2).toEqual(NaN);
-        
+    });
+    
+    test('12: Missing one or more input', () => {
         const result3 = ceil(null, 3);
         expect(result3).toEqual(NaN);
-        
+    });
+    
+    test('13: Missing one or more input', () => {
         const result4 = ceil(123.456, null);
-        expect(result4).toEqual(124);
-        
+        expect(result4).toEqual(124);   
+    });
+    
+    test('14: Missing one or more input', () => {
         const result5 = ceil(123.456, undefined);
         expect(result5).toEqual(124);
-        
+    });
+    
+    test('15: Missing one or more input', () => {
         const result6 = ceil();
         expect(result6).toEqual(NaN);
-        
+    });
+    
+    test('16: Missing one or more input', () => {
         const result7 = ceil(123.456, NaN);
         expect(result7).toEqual(124);        
-    });      
+    });    
 });

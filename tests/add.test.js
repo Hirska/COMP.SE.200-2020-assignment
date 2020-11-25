@@ -1,37 +1,66 @@
 import add from '../src/add.js'
 
-describe('add 1: Basic addition', () => {
-    test('1: Addtion between integers', () => {
-        const result = add(1,2)
-        expect(result).toBe(3)
-    });
+describe('Suite 1: Basic addition', () => {
 
-    test('2: Addition between very large integers', () => {
-        const result = add(1000000000000000,2000000000000000);
-        expect(result).toBe(3000000000000000);
-    });
+    describe('Suite 1: Basic addition', () => {
+        test('add 1: Addtion between integers', () => {
+            const result = add(1,2)
+            expect(result).toBe(3)
+        });
+
+        test('add 2: Addition between very large integers', () => {
+            const result = add(1000000000000000,2000000000000000);
+            expect(result).toBe(3000000000000000);
+        });
+
+});
     
-    test('3: Addtion between floats', () => {
+    test('add 3: Addtion between floats', () => {
         const result = add(1.21354,27646.54)
         expect(result).toBe(27647.75354)
     });
     
-    test('4: Addtion between signed numbers', () => {
+    test('add 4: Addtion between signed numbers', () => {
         const result = add(-464911.546,15412.87451)
         expect(result).toBe(-449498.67149)
     });    
-})
+});
 
-describe('add 2: Undefined values', () => {
+describe('Suite 2: Invalid inputs - objects and paths', () => {
     // This case means that both should be null for a default value? 
     // By design or an overlook
-    test('1: Missing one params', () => {
+    test('add 5: Missing path', () => {
         const result = add(1);
         expect(result).toBe(1);
     });
 
-    test('2: Missing both params', () => {        
+    test('add 6: Path is null', () => {
+        const result = add(1, null);
+        expect(result).toBe(1);
+    });
+
+    test('add 7: Path is undefined', () => {
+        const result = add(1, undefined);
+        expect(result).toBe(1);
+    });
+
+    test('add 8: Path is null', () => {
+        const result = add(1, NaN);
+        expect(result).toBe(NaN);
+    });
+
+    test('add 9: Object is null, path is empty', () => {        
+        const result = add(null);
+        expect(result).toBe(0);
+    });
+
+    test('add 10: Object is null, path is undefined', () => {
+        const result = add(null, undefined);
+        expect(result).toBe(0);
+    });    
+
+    test('add 9: Missing both params', () => {        
         const result = add();
         expect(result).toBe(0);
-    });  
-}) 
+    });    
+});
