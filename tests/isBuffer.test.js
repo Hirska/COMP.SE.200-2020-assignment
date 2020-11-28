@@ -2,9 +2,21 @@ import isBuffer from "../src/isBuffer.js";
 import { argsFunction } from "./helper";
 describe("isBuffer", () => {
   it("1: should return true when buffer is given as parameter", () => {
-    expect(isBuffer(new Buffer(2))).toBe(true);
+    expect(isBuffer(Buffer.alloc(2))).toBe(true);
   });
-  it("2: should return false when other than buffer", () => {
+  it("2: should return true when unsafely allocated buffer is given as parameter", () => {
+    expect(isBuffer(Buffer.allocUnsafe(2))).toBe(true);
+  });
+
+  it("3: should return true when buffer from array is given as parameter", () => {
+    expect(isBuffer(Buffer.from([1,2,3]))).toBe(true);
+  });
+
+  it("4: should return false when uint8array is given", () => {
+    expect(isBuffer(Uint8Array.from('12345'))).toBe(false);
+  });
+
+  it("4: should return false when other than buffer", () => {
     // Test array
     expect(isBuffer(["test", "test2"])).toBe(false);
 

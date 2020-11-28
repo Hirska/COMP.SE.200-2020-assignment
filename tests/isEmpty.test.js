@@ -10,7 +10,7 @@ describe("isEmpty", () => {
     expect(isEmpty(true)).toBe(true);
     expect(isEmpty(false)).toBe(true);
     expect(isEmpty(argsFunction())).toBe(true);
-
+    expect(isEmpty(new Map())).toBe(true);
   });
   it("2: should return false when other than empty", () => {
     // Test array
@@ -22,9 +22,6 @@ describe("isEmpty", () => {
     // Test object
     expect(isEmpty({ test: 12 })).toBe(false);
 
-    // Test symbol
-    expect(isEmpty(Symbol("test"))).toBe(false);
-
     // Test function
     expect(isEmpty(() => "test")).toBe(false);
 
@@ -35,16 +32,16 @@ describe("isEmpty", () => {
     expect(isEmpty("test")).toBe(false);
     expect(isEmpty(new Date().toDateString())).toBe(false);
 
-    // Test null and undefined
-    expect(isEmpty(null)).toBe(false);
-    expect(isEmpty(undefined)).toBe(false);
-
-    // Test boolean
-    expect(isEmpty(true)).toBe(false);
-    expect(isEmpty(false)).toBe(false);
     expect(isEmpty(new Boolean())).toBe(false);
 
     // Test buffer
     expect(isEmpty(Buffer.alloc(2))).toBe(false);
+  });
+  it("3: shoul", () => {
+    expect(
+      isEmpty(function Object(n) {
+        this.number = n;
+      })
+    ).toBe(false);
   });
 });

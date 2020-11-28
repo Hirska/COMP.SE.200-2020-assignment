@@ -29,7 +29,7 @@ describe("isArgument", () => {
     expect(isArguments(new Error())).toBe(false);
 
     //Test null and undefined
-    expect(isArrayLikeObject(null)).toBe(false);
-    expect(isArrayLikeObject(undefined)).toBe(false);
+    expect(isArguments(null)).toBe(false);
+    expect(isArguments(undefined)).toBe(false);
   });
 });
