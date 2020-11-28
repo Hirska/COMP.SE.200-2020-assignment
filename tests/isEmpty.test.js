@@ -1,4 +1,5 @@
 import isEmpty from "../src/isEmpty.js";
+
 import { argsFunction } from "./helper";
 describe("isEmpty", () => {
   it("1: should return true when empty value is given as parameter", () => {
@@ -22,26 +23,10 @@ describe("isEmpty", () => {
     // Test object
     expect(isEmpty({ test: 12 })).toBe(false);
 
-    // Test function
-    expect(isEmpty(() => "test")).toBe(false);
-
-    // Test error
-    expect(isEmpty(new Error())).toBe(false);
-
     //Test string
     expect(isEmpty("test")).toBe(false);
-    expect(isEmpty(new Date().toDateString())).toBe(false);
-
-    expect(isEmpty(new Boolean())).toBe(false);
 
     // Test buffer
     expect(isEmpty(Buffer.alloc(2))).toBe(false);
-  });
-  it("3: shoul", () => {
-    expect(
-      isEmpty(function Object(n) {
-        this.number = n;
-      })
-    ).toBe(false);
   });
 });
