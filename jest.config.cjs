@@ -1,5 +1,4 @@
 module.exports = {
-    "transform": {
-        "\\.[jt]sx?$": "babel-jest"
-      }
+    transform: {},
+    coveragePathIgnorePatterns: ["/node_modules/", "/src/.internal/"]
 };

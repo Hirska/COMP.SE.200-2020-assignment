@@ -1,0 +1,1 @@
+export const argsFunction = function () {return arguments}
