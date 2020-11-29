@@ -67,7 +67,7 @@ describe('filter', () => {
     // This case means that both should be null for a default value? 
     // By design or an overlook
 
-    test('1: Valid string, target and position filter', () => {
+    test('1: Valid string, target and position filter 1', () => {
         const users = [
             { 'user': 'barney', 'active': true },
             { 'user': 'fred',   'active': false }
@@ -76,57 +76,57 @@ describe('filter', () => {
         expect(result).toEqual([{"active": true, "user": "barney"}]);
     });
 
-    test('2: Valid string, target and position filter', () => {
+    test('2: Valid string, target and position filter 2', () => {
         const result2 = filter(itemObjectsList, ({attribs}) => attribs[3]);
         expect(result2).toEqual([someItemObject3]);
     });
     
-    test('3: Valid string, target and position filter', () => {
+    test('3: Valid string, target and position filter 3', () => {
         const result3 = filter(itemObjectsList, ({attribs}) => attribs[4]);
         expect(result3).toEqual([someItemObject, someItemObject3]);
     });
     
-    test('4: Valid string, target and position filter', () => {
+    test('4: Valid string, target and position filter 4', () => {
         const result4 = filter(itemObjectsList, ({ratings}) => ratings['5'] > 100);
         expect(result4).toEqual([someItemObject3]);
     });
 
-    test('5: Exist null, NaN or undefined', () => {
+    test('5: Exist null, NaN or undefined 1', () => {
         const result = filter(null, ({ active }) => active);
         expect(result).toEqual([[]]);
     });
 
-    test('6: Exist null, NaN or undefined', () => {
+    test('6: Exist null, NaN or undefined 2', () => {
         const result2 = filter(undefined, ({ active }) => active);
         expect(result2).toEqual([[]]);
     });
     
-    test('7: Exist null, NaN or undefined', () => {
+    test('7: Exist null, NaN or undefined 3', () => {
         const result3 = filter(NaN, 3);
         expect(result3).toEqual([[]]);
     });
     
-    test('8: Exist null, NaN or undefined', () => {
+    test('8: Exist null, NaN or undefined 4', () => {
         const result4 = filter(itemObjectsList, ({ratings}) => ratings['500'] > 100);
         expect(result4).toEqual([[]]);
     });
     
-    test('9: Exist null, NaN or undefined', () => {
+    test('9: Exist null, NaN or undefined 5', () => {
         const result5 = filter(itemObjectsList, undefined);
         expect(result5).toEqual([[]]);
     });
     
-    test('10: Missing one or more input', () => {
+    test('10: Missing one or more input 1', () => {
         const result = filter(itemObjectsList, null);
         expect(result).toEqual([[]]); 
     });
 
-    test('11: Missing one or more input', () => {
+    test('11: Missing one or more input 2', () => {
         const result2 = filter(itemObjectsList, NaN);
         expect(result2).toEqual([[]]);
     });
     
-    test('12: Missing one or more input', () => {
+    test('12: Missing one or more input 3', () => {
         const result3 = filter(itemObjectsList);
         expect(result3).toEqual([[]]);
     });

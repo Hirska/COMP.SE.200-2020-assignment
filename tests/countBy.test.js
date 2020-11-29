@@ -34,52 +34,52 @@ describe('countBy', () => {
         expect(result).toEqual({ 'true': 2, 'false': 1 });
     });
 
-    test('2: Iteratee accesses undefined attribute', () => {
+    test('2: Iteratee accesses undefined attribute 1', () => {
         const result = countBy(users, value => value.activation);
         expect(result).toEqual({});
     });
 
-    test('3: Iteratee accesses undefined attribute', () => {
+    test('3: Iteratee accesses undefined attribute 2', () => {
         const result2 = countBy(users, null);
         expect(result2).toEqual({});
     });
     
-    test('4: Iteratee accesses undefined attribute', () => {
+    test('4: Iteratee accesses undefined attribute 3', () => {
         const result3 = countBy(users, undefined);
         expect(result3).toEqual({});
     });
     
-    test('5: Iteratee accesses undefined attribute', () => {
+    test('5: Iteratee accesses undefined attribute 4', () => {
         const result4 = countBy(users, NaN);
         expect(result4).toEqual({});
     });
     
-    test('6: Missing one or more input', () => {
+    test('6: Missing one or more input 1', () => {
         const result = countBy(null, value => value.active);
         expect(result).toEqual({}); 
     });
 
-    test('7: Missing one or more input', () => {
+    test('7: Missing one or more input 2', () => {
         const result2 = countBy(undefined, value => value.active);
         expect(result2).toEqual({});
     });
     
-    test('8: Missing one or more input', () => {
+    test('8: Missing one or more input 3', () => {
         const result3 = countBy(NaN, value => value.active);
         expect(result3).toEqual({});
     });
     
-    test('9: Missing one or more input', () => {
+    test('9: Missing one or more input 4', () => {
         const result4 = countBy(123.456, value => value.active);
         expect(result4).toEqual({});
     });
     
-    test('10: Missing one or more input', () => {
+    test('10: Missing one or more input 5', () => {
         const result6 = countBy();
         expect(result6).toEqual({});
     });
     
-    test('11: Missing one or more input', () => {
+    test('11: Missing one or more input 6', () => {
         const result7 = countBy(123.456, NaN);
         expect(result7).toEqual({});
     });

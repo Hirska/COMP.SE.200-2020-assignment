@@ -9,7 +9,7 @@ describe('clamp', () => {
         expect(result0).toEqual(-5);
         
         const result00 = clamp(10, -5, 5);
-        expect(result00).toEqual(5);        
+        expect(result00).toEqual(5);
 
         const result = clamp(2, 4, 12);
         expect(result).toEqual(4);
@@ -18,7 +18,7 @@ describe('clamp', () => {
         expect(result2).toEqual(1);
 
         const result4 = clamp(5, -5, 25);
-        expect(result4).toEqual(5);         
+        expect(result4).toEqual(5);
 
         // Suppose to be 6, but received 1
         const result3 = clamp(99, 1, 6);

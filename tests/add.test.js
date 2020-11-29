@@ -44,7 +44,7 @@ describe('Suite 2: Invalid inputs - objects and paths', () => {
         expect(result).toBe(1);
     });
 
-    test('add 8: Path is null', () => {
+    test('add 8: Path is NaN', () => {
         const result = add(1, NaN);
         expect(result).toBe(NaN);
     });
@@ -59,7 +59,7 @@ describe('Suite 2: Invalid inputs - objects and paths', () => {
         expect(result).toBe(0);
     });    
 
-    test('add 9: Missing both params', () => {        
+    test('add 11: Missing both params', () => {        
         const result = add();
         expect(result).toBe(0);
     });    

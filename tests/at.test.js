@@ -39,17 +39,17 @@ const someRandomPaths = {
 
 
 describe('Suite 1: Basic functionality, proper object and paths', () => {
-    test('at 1: get object attribute - name', () => {
+    test('at 1: Get object attribute - name', () => {
         const result = at(someItemObject, someRandomPaths.get_name)
         expect(result).toEqual(['some item']);
     });
 
-    test('at 2: get object attribute - quanlity', () => {
+    test('at 2: Get object attribute - quanlity', () => {
         const result2 = at(someItemObject, someRandomPaths.get_quantity)
         expect(result2).toEqual([739182465]);
     });
 
-    test('at 3: get object attribute - attribs', () => {
+    test('at 3: Get object attribute - attribs', () => {
         const result3 = at(someItemObject, someRandomPaths.get_attribs)
         expect(result3).toEqual([[
             {'height': 15, 'width': 45, 'length': 97},
@@ -60,7 +60,7 @@ describe('Suite 1: Basic functionality, proper object and paths', () => {
         ]]);
     });
 
-    test('at 4: get object attribute - ratings', () => {
+    test('at 4: Get object attribute - ratings', () => {
         const result4 = at(someItemObject, someRandomPaths.get_ratings)
         expect(result4).toEqual([{
             '5': 15,
@@ -71,12 +71,12 @@ describe('Suite 1: Basic functionality, proper object and paths', () => {
         }]);
     });
 
-    test('at 5: get object attribute - height', () => {
+    test('at 5: Get object attribute - height', () => {
         const result = at(someItemObject, someRandomPaths.get_height);
         expect(result).toEqual([15]);
     });
 
-    test('at 6: get object attribute - sizes', () => {
+    test('at 6: Get object attribute - sizes', () => {
         const result2 = at(someItemObject, [
             someRandomPaths.get_height,
             someRandomPaths.get_width,
@@ -84,7 +84,7 @@ describe('Suite 1: Basic functionality, proper object and paths', () => {
         expect(result2).toEqual([15, 45, 97]);
     });
 
-    test('at 7: get object attribute - ratings', () => {
+    test('at 7: Get object attribute - ratings', () => {
         const result3 = at(someItemObject, [
             someRandomPaths.get_ratings_5_stars,
             someRandomPaths.get_ratings_4_stars,
@@ -122,7 +122,7 @@ describe('Suite 2: Invalid inputs - paths and objects', () => {
         expect(result).toEqual([undefined]);
     }); 
     
-    test('at 12: Path is not passed', () => {
+    test('at 12: Missing both params', () => {
         const result = at();
         expect(result).toEqual([]);
     });
