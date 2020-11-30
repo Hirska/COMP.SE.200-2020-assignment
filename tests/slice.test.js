@@ -26,9 +26,9 @@ describe("slice", () => {
   it("8: should return empty array when non-array is given", () => {
     expect(slice({a:1, b:2}, 1)).toEqual([]);
   });
-  it("9: should return empty array when null or undefined is given as array", () => {
-    expect(slice(null)).toEqual([]);
-    expect(slice(undefined)).toEqual([]);
+  it("9: should throw error when null or undefined is given as array", () => {
+    expect(() => slice(null)).toThrowError();
+    expect(() => slice(undefined)).toThrowError();
   });
   it("10: should return empty array when starting position is bigger than ending", () => {
     expect(slice([1, 2, 3, 4], 3, 1)).toEqual([])

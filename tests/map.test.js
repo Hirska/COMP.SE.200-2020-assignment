@@ -15,7 +15,11 @@ describe("map", () => {
   });
 
   it("4: should return empty array null/undefined is given as array", () => {
-    expect(map(null, (n) => {return n})).toEqual([]);
-    expect(map(undefined, (n) => {return n})).toEqual([]);
+    expect(() => map(null, (n) => {return n})).toThrowError();
+    expect(() => map(undefined, (n) => {return n})).toThrowError();
   });
+  
+  it('5: should return error when non-function is given as second parameter', () => {
+    expect(() => map([1,2,3], null)).toThrowError();
+  })
 });

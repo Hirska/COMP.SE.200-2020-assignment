@@ -7,7 +7,7 @@ describe("isBoolean", () => {
     expect(isBoolean(false)).toBe(true);
     expect(isBoolean(new Boolean())).toBe(true)
   });
-  it("2: should return false when other than arraylike", () => {
+  it("2: should return false when other than boolean", () => {
     // Test array
     expect(isBoolean(["test", "test2"])).toBe(false);
 

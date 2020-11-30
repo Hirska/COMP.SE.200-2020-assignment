@@ -9,10 +9,15 @@ describe("toInteger", () => {
         expect(toInteger(Number.MIN_VALUE)).toEqual(0)
         expect(toInteger(-Number.MIN_VALUE)).toEqual(0)
     })
-    it('3: should return toFinite max value when Infinity is given', () => {
+    it('3: should return sameinteger when integer is given', () => {
+        expect(5).toEqual(5)
+        expect(-5).toEqual(-5)
+    })
+    it('4: should return toFinite max value when Infinity is given', () => {
         expect(toInteger(Infinity)).toEqual(1.7976931348623157e+308)
     })
-    it('4: should return integer when string containing number is given', () => {
+
+    it('5: should return integer when string containing number is given', () => {
         expect(toInteger('3.7')).toEqual(3)
         expect(toInteger('-3.7')).toEqual(-3)
         expect(toInteger('5')).toEqual(5)
